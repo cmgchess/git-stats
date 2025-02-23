@@ -1,0 +1,26 @@
+{
+  "name": "git-stats",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "build:client": "npm --prefix client run build",
+    "build:server": "npm --prefix server run build",
+    "build": "npm run build:client && npm run build:server",
+    "start:client": "npm --prefix client run preview",
+    "start:server": "npm --prefix server run start",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\"",
+    "install:client": "cd client && npm install && cd ..",
+    "install:server": "cd server && npm install && cd ..",
+    "postinstall": "npm run install:server && npm run install:client"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

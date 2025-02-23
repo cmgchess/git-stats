@@ -1,0 +1,36 @@
+# Node.js dependencies
+/node_modules/
+
+# Build output
+/dist/
+/build/
+
+# TypeScript cache
+/.tsbuildinfo
+
+# Local configuration files (e.g., personal config or credentials)
+config.ts
+
+# Logs
+*.log
+logs/
+
+# Debug files
+.vscode/
+.idea/
+
+# OS-specific files (e.g., macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# Environment files (like .env)
+.env
+
+# npm package lock files (if you're using yarn, you may prefer to keep package-lock.json or yarn.lock)
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# TypeScript compiled files (optional if already in dist/)
+*.js
+*.d.ts
