@@ -2,16 +2,20 @@ import { useState, useEffect } from 'react';
 import { ContributionData, YearData } from '../types/Git';
 import { handleErrorResponse } from '../api/errorHandler';
 import { LAST_YEAR } from '../Constants';
+import weekday from 'dayjs/plugin/weekday';
+import dayjs from 'dayjs';
+dayjs.extend(weekday);
 
 const URL = 'http://localhost:3000/git/daily';
 
+const getLastSunday = (date: dayjs.Dayjs) => {
+  const lastSunday = date.subtract(date.weekday(), 'day');
+  return lastSunday.format('YYYY/MM/DD');
+};
+
 const calcPastYearStart = (): string => {
-  const today = new Date();
-  today.setDate(today.getDate() - 370);
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, '0');
-  const day = String(today.getDate()).padStart(2, '0');
-  return `${year}/${month}/${day}`;
+  const today = dayjs();
+  return getLastSunday(today.subtract(52 * 7, 'day'));
 };
 
 const processContributionData = (

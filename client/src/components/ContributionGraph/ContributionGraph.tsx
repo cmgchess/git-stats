@@ -2,7 +2,6 @@ import HeatMap from '@uiw/react-heat-map';
 import dayjs from 'dayjs';
 import { YearData } from '../../types/Git';
 import ContributionTooltip from '../ContributionTooltip/ContributionTooltip';
-
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 import { COLORS, LAST_YEAR } from '../../Constants';
 dayjs.extend(advancedFormat);
@@ -13,6 +12,8 @@ interface ContributionGraphProps {
   pastYearStart: string;
   onContributionClick: (date: string, count: number) => void;
 }
+
+const today = dayjs();
 
 const getTooltipContent = (date: string, count: number) => {
   const contributionText =
@@ -64,13 +65,14 @@ const ContributionGraph = ({
           rectRender={(props, data) => {
             if (year !== LAST_YEAR && !data.date.startsWith(year))
               return <rect />;
+            const date = dayjs(data.date);
+            if (year === LAST_YEAR && date.isAfter(today)) return <rect />;
             return (
               <rect
                 {...props}
                 onClick={() => {
-                  const [y, m, d] = data.date.split('/');
                   onContributionClick(
-                    `${y}/${m.padStart(2, '0')}/${d.padStart(2, '0')}`,
+                    date.format('YYYY/MM/DD'),
                     data.count ?? 0
                   );
                 }}
