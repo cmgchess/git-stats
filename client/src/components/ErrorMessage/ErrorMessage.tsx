@@ -4,7 +4,6 @@ const ErrorMessage = ({ message }: { message: string }) => {
       <span className="mr-2 text-xl">❗</span>
       <strong>Error: </strong>
       <span className="ml-2">{message}</span>
-      <span className="ml-2 text-xl">😞</span>
     </div>
   );
 };

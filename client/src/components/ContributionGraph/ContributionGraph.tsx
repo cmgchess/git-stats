@@ -19,8 +19,8 @@ const getTooltipContent = (date: string, count: number) => {
     count === 1
       ? '1 contribution'
       : count > 1
-      ? `${count} contributions`
-      : 'No contributions';
+        ? `${count} contributions`
+        : 'No contributions';
   return `${contributionText} on ${dayjs(date).format('MMMM Do')}`;
 };
 
@@ -33,7 +33,8 @@ const ContributionGraph = ({
   return (
     <>
       <h2 className="text-normal mb-2">
-        {yearData.count} contribution{yearData.count > 1 ? 's' : ''} in {year === LAST_YEAR ? 'the last year' : year}
+        {yearData.count} contribution{yearData.count > 1 ? 's' : ''} in{' '}
+        {year === LAST_YEAR ? 'the last year' : year}
       </h2>
       <div>
         <HeatMap

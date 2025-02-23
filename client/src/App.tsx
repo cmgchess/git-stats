@@ -1,4 +1,3 @@
-// import Basic from './components/Basic';
 import GitContributionLayout from './components/ContributionLayout/GitContributionLayout';
 
 function App() {

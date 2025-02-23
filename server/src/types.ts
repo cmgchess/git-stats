@@ -1,5 +1,5 @@
 export interface Config {
-    author: string;
-    individual: string[];
-    directory: string[];
+  author: string;
+  individual: string[];
+  directory: string[];
 }
