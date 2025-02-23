@@ -61,7 +61,7 @@ const ContributionGraph = ({
                 '-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
             } as React.CSSProperties
           }
-          panelColors={COLORS}
+          panelColors={yearData.count > 0 ? COLORS : [COLORS[0]]}
           rectRender={(props, data) => {
             if (year !== LAST_YEAR && !data.date.startsWith(year))
               return <rect />;
