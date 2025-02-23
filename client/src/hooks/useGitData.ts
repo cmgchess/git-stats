@@ -79,7 +79,7 @@ export const useGitData = () => {
         );
         setContributionData(data);
         setYearData(processedContributionData.yearData);
-        setUniqueYears([...processedContributionData.years]);
+        setUniqueYears([...processedContributionData.years].sort());
       } catch (e) {
         if (e instanceof Error) setError(e.message);
       } finally {
