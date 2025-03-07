@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { ContributionData, YearData } from '../types/Git';
 import { handleErrorResponse } from '../api/errorHandler';
-import { LAST_YEAR } from '../Constants';
+import { BASE_URL, LAST_YEAR } from '../Constants';
 import weekday from 'dayjs/plugin/weekday';
 import dayjs from 'dayjs';
 dayjs.extend(weekday);
 
-const URL = 'http://localhost:3000/git/daily';
+const URL = `${BASE_URL}git/daily`;
 
 const getLastSunday = (date: dayjs.Dayjs) => {
   const lastSunday = date.subtract(date.weekday(), 'day');
