@@ -8,9 +8,6 @@
 # TypeScript cache
 /.tsbuildinfo
 
-# Local configuration files (e.g., personal config or credentials)
-config.ts
-
 # Logs
 *.log
 logs/

@@ -1,10 +1,12 @@
+import * as rawConfig from '../../config.json';
 import gitRoutes from './routes/git';
-import { config } from './config';
-import express, { Request } from 'express';
+import { Config } from './types';
+import express from 'express';
 import cors from 'cors';
 import path from 'path';
 import fs from 'fs';
 
+const config: Config = rawConfig;
 const app = express();
 const port = 3000;
 
