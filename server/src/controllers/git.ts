@@ -24,7 +24,7 @@ export const getCommitsPerDay = async (
     const commits: { [date: string]: { [repoName: string]: number } } = {};
     for (const dirs of chunkedDirs) {
       const logs = await Promise.all(
-        dirs.map((dir) => getCommitsForRepo(dir, author, 'main'))
+        dirs.map((dir) => getCommitsForRepo(dir, author, 'origin/main'))
       );
       logs.forEach((dateArrs, idx) => {
         const repoName = dirs[idx].split('/').at(-1);

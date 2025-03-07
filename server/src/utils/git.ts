@@ -4,7 +4,7 @@ import path from 'path';
 export const getCommitsForRepo = async (
   dir: string,
   author: string,
-  branch: string = 'main'
+  branch: string = 'origin/main'
 ): Promise<string[]> => {
   try {
     const git = simpleGit(path.resolve(dir), { trimmed: true });
